@@ -1,4 +1,42 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { SPRITE_SIZE} from '../../config/constants'
+
+import './styles.css'
+
+function getTileSprite (type){
+    switch(type) {
+        case 0:
+            return 'grass'
+        case 5:
+            return 'rock'
+        case 6:
+            return 'tree'
+    }
+}
+function MapTile(props) {
+    return <div 
+        className={`tile ${getTileSprite(props.tile)}`}
+        style={{
+            height: SPRITE_SIZE,
+            width: SPRITE_SIZE
+        }}
+    >
+    </div>
+}
+
+function MapRow(props) {
+    return <div 
+        className='row'
+        style={{
+            height: 40
+        }}
+    >
+    {
+        props.tiles.map( tile => <MapTile tile={tile} />)
+    }
+    </div>
+}
 
 function Map(props) {
     return(
@@ -9,10 +47,13 @@ function Map(props) {
                 left: '0px',
                 width: '1000px',
                 height: '600px',
-                backgroundColor: 'green',
                 border: '4px solid black',
             }}
-        />
+        >
+        {
+            props.tiles.map(row => <MapRow tiles={row} />)
+        }
+        </div>
         // <video autoPlay loop muted id="myVideo" style={{
         //     position: 'relative',
         //     top: '0px',
@@ -26,4 +67,10 @@ function Map(props) {
     )
 }
 
-export default Map
+function mapStateToProps(state) {
+    return {
+        tiles: state.map.tiles
+    }
+}
+
+export default connect(mapStateToProps)(Map)
