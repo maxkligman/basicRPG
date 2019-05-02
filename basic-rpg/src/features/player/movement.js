@@ -32,6 +32,20 @@ export default function handleMovement(player) {
         return nextTile < 5
     }
 
+    function observeLocation (oldPosition, newPosition){
+        const tiles = store.getState().map.tiles
+        const y = newPosition[1] / SPRITE_SIZE
+        const x = newPosition[0] / SPRITE_SIZE
+        const nextTile = tiles[y][x]
+        // switch(nextTile) {
+        //     case 10:
+        //         return console.log('oi mate its the dorm')
+        //     default:
+        //         return console.log("boo")    
+        // }
+        return nextTile; 
+    }
+
     function dispatchMove(newPosition) {
         store.dispatch({
             type: 'MOVE_PLAYER',
@@ -44,9 +58,29 @@ export default function handleMovement(player) {
     function attemptMove(direction){
         const oldPosition = store.getState().player.position
         const newPosition = getNewPosition(oldPosition, direction)
-
-        if(observeBoundaries(oldPosition, newPosition) && observeImpassable(oldPosition, newPosition))
-        dispatchMove(newPosition)
+        
+        if(observeBoundaries(oldPosition, newPosition) && observeImpassable(oldPosition, newPosition)){
+            dispatchMove(newPosition)
+        }
+        switch(observeLocation(oldPosition, newPosition)) {
+            case 10:
+                 console.log('oi mate its the dorm')
+                 break;
+            case 11:
+                 console.log('SHHHHHH ITS THE FUCKING LIBRARY')
+                 break;
+            case 12:
+                 console.log('SIG EP SIG EP')
+                 break;
+            case 13:
+                 console.log('get swol bruh')
+                 break;
+            case 14:
+                 console.log('num nums motherfucker')
+                 break;
+            default:
+                return console.log("moving")    
+        }
     }
 
     function handleKeyDown(e) {

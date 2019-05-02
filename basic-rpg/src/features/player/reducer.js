@@ -1,5 +1,6 @@
 const initialState = {
     position: [0, 0],
+    inventory: [],
 }
 
 const playerReducer = (state=initialState, action) => {

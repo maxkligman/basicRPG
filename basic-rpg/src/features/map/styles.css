@@ -1,16 +1,55 @@
 .tile {
     display: inline-flex;
-    background-color: green
+    /* background-color: green */
 }
 
 .grass {
-    background-color: green
+    /* background-color: green  */
+}
+
+.fern {
+    background-image: url('/tiles/Fern_40x40.png');
+    background-color: rgb(248, 238, 192)
+
 }
 
 .rock {
-    background-image: url('/tiles/rock.png')
+    background-image: url('/tiles/rock.png');
+    background-color: rgb(248, 238, 192)
+
 }
 
 .tree {
-    background-image: url('/tiles/tree.png')
+    background-image: url('/tiles/tree.png');
+    background-color: rgb(248, 238, 192)
+}
+
+.treeCedar {
+    background-image: url('/tiles/Cedar_Tree_40x40.png');
+    background-color: rgb(248, 238, 192)
+
+}
+
+.treeRed {
+    background-image: url('/tiles/Red_Tree_40x40.png');
+    background-color: rgb(248, 238, 192)
+
+}
+
+.treeLemon {
+    background-image: url('/tiles/Lemon_Tree_40x40.png');
+    background-color: rgb(248, 238, 192)
+
+}
+
+.spikePit {
+    background-image: url('/tiles/Spike_Pit-0_40x40.png');
+    background-color: rgb(248, 238, 192)
+
+}
+
+.frat, .dorm, .library, .cafeteria, .library, .gym{
+    background: purple;
+    opacity: 0.4;
+    border-radius: .5em
 }
