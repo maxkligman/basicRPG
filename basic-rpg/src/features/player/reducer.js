@@ -9,6 +9,10 @@ const playerReducer = (state=initialState, action) => {
             return{
                 ...action.payload
             }
+        case 'PICKUP_ITEM':
+            return{
+                ...action.payload
+            }
         default:
             return(state)
     }

@@ -7,8 +7,8 @@ import './styles.css'
 
 function getTileSprite (type){
     switch(type) {
-        case 1:
-            return 'grass'
+        // case 1:
+        //     return 'grass'
         case 2:
             return 'fern'
         case 5:
